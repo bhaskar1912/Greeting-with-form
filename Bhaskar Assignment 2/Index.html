@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+       <script>
+        function Show_Time()
+        {
+            setInterval(function()
+            {
+                var d=new Date();
+                var newTime=d.toLocaleTimeString();
+                document.getElementById("show_time").innerHTML=newTime; },1000);
+                var d=new Date();
+                var hrs=d.getHours();
+                if(hrs>=5 && hrs<12)
+                {
+                    document.getElementById("message").innerHTML="GOOD MORNING";
+                    document.getElementById("message").style.color="orange";
+                    document.getElementById("newimage").src="images/good-morning-gif.gif";
+                }
+                else if(hrs=>12 && hrs<17)
+                {
+                    document.getElementById("message").innerHTML="GOOD AFTERNOON";
+                    document.getElementById("message").style.color="red";
+                    document.getElementById("newimage").src="images/good afternoon.gif";
+                }
+                else if(hrs>=17 && hrs<=19)
+                {
+                    document.getElementById("message").innerHTML="GOOD EVENING";
+                    document.getElementById("message").style.color="blue";
+                    document.getElementById("newimage").src="images/good evening.webp";
+                }
+                else{
+                    document.getElementById("message").innerHTML="GOOD  Night";
+                    document.getElementById("message").style.color="black";
+                    document.getElementById("newimage").src="images/goodnight.gif";
+                }
+            
+            
+        var minute=4;
+        var second=60;
+        setInterval(function ()
+        {
+            if(minute==0&&second==1)
+            {
+                document.getElementById("timer").innerHTML="00:00";
+                // console.log("time finished");
+                window.location.href='TryAgain.html';
+               
+            }
+            else{
+                  second--;
+                  if(second==00)
+                  {
+                    minute--;
+                    second=60;
+                  }
+                  document.getElementById("timer").innerHTML=minute+":"+second;
+            }
+        },1000);
+      }
+      function wow()
+{
+    var INPUT=document.getElementsByClassName("data");
+    INPUT[0].value=INPUT[0].value.toUpperCase();
+}
+function woww()
+{
+var Mobile=document.getElementById("mobile").value;
+if(Mobile=="")
+{
+    document.getElementById("msg").innerText="ENTER MOBILE NUMBER";
+    document.getElementById("msg").style.color="red"
+}
+else{
+    if(Mobile.length==10)
+{
+    document.getElementById("msg").innerText="FINE";
+    document.getElementById("msg").style.color="green"
+}
+else if(Mobile.length<10)
+{
+    document.getElementById("msg").innerText="LESS THAN 10 ";
+    document.getElementById("msg").style.color="black"
+}
+else{
+    document.getElementById("msg").innerText="GREATER THAN";
+    document.getElementById("msg").style.color="blue"
+}
+}
+}
+function validation()
+{
+    var IMAGE= document.getElementById("image").value;
+    var result=true;
+    if(count<6)
+    {
+        document.getElementById("error").innerText="Please check again";
+        result=false;
+    }
+return result
+}
+            </script>
+</head>
+<body onload="Show_Time()" style="color: black; font-size: 25px;">
+    <nav>
+        <div class="navbar">
+WELCOME!
+        </div>
+    </nav>
+    <main>
+        <div class="box">
+        <div class="box1">
+            <div class="box12">
+                <center>
+            <h2 id="show_time"></h2>
+       
+            <p id="message"></p>
+            <img id="newimage" src=""></center></div>
+         </div>
+        <div class="box2">
+            <center>
+            
+            <h4 id="timer"></h4></center><br>
+            <div class="box21">
+                <form action="C:\Users\bhaskar mishra\Desktop\Bhaskar Assignment 2\Successful.html" onsubmit="return validation()">
+            Name<span>*</span>:- <input type="text" onkeyup="wow()" class="data" required><br><br>
+            Contact Number <span>*</span>:- <input onkeydown="woww()" type="text" id="mobile" required>
+            <span id="msg"></span><br><br>
+            Gender<span>*</span>:- <input type="radio" name="gender" value="male" required>Male
+            <input type="radio" name="gender" value="female" required>Female
+          
+            </span> <br><br>
+           Hobby<span>*</span>:- <input type="checkbox" name="chk" value="Sports" required>Sports
+            <input type="checkbox" name="chk" value="Singing">Singing
+            <input type="checkbox" name="chk" value="Travelling">Travelling
+            <input type="checkbox" name="chk" value="Others">Others
+            <br><br>
+            Select<span>*</span>:- <select  id="op">
+                <option>CITY</option>
+                  <option value="Indore" >Indore</option>
+                  <option value="Bhopal">Bhopal</option>
+                  <option value="Ujjain">Ujjain</option>
+                  <option value="Others">Others</option>
+            </select><br><br>
+            
+                Image <span>*</span>:- <input type="file" id="image" required>
+                <span id="error"></span><br><br>
+                <center>
+                <input type="submit" value="SUBMIT"></center>
+        </div>
+        </div>
+        </div>
+    </main>
+    <footer>
+        <div class="foot">
+            VISIT AGAIN!
+                    </div>
+    </footer>
+</body>
+</html>
